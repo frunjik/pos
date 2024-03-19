@@ -49,6 +49,7 @@
 			<ui-component name="page" path="common.page" config="if:pagedashboard;url:/pages/dashboard.html;reload:?/reload" class="hidden invisible"></ui-component>
 			<ui-component name="page" path="common.page" config="if:pagetables;url:/pages/tables.html;reload:?/reload" class="hidden invisible"></ui-component>
 			<ui-component name="page" path="common.page" config="if:pageproducts;url:/pages/products.html;reload:?/reload" class="hidden invisible"></ui-component>
+			<ui-component name="page" path="common.page" config="if:pageorder;url:/pages/order.html;reload:?/reload" class="hidden invisible"></ui-component>
 			<ui-component name="page" path="common.page" config="if:pageworkspace;url:/pages/workspace.html;reload:?/reload" class="hidden invisible"></ui-component>
 			<ui-component name="page" path="common.page" config="if:pagesettings;url:/pages/settings.html;reload:?/reload" class="hidden invisible"></ui-component>
 		</section>
@@ -64,6 +65,7 @@
 						<nav>
 							<div class="exec" data-if="pagedashboard" data-exec="common/page"><i class="ti ti-dashboard"></i>@(Dashboard)</div>
 							<div class="exec" data-if="pagetables" data-exec="common/page"><i class="ti ti-box"></i>@(Tables)</div>
+							<div class="exec" data-if="pageorder" data-exec="common/page"><i class="ti ti-box"></i>@(Order)</div>
 							<div class="exec" data-if="pageproducts" data-exec="common/page"><i class="ti ti-box"></i>@(Products)</div>
 							<div class="exec" data-if="pageworkspace" data-exec="common/page"><i class="ti ti-box"></i>@(Workspace)</div>
 						</nav>

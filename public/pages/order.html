@@ -1,0 +1,40 @@
+<ui-plugin>
+
+    <div style="width:100%;padding:20px">
+        <ui-component name="tablegrid" path="?.order" config="count:4" style="border:1px solid #EBECF2">
+
+            <script type="text/html">
+                <div class="exec" data-exec="?/view">
+                    <div>{{ value.title }}</div>
+                </div>
+            </script>
+
+        </ui-component>
+    </div>
+
+</ui-plugin>
+
+<script>
+    PLUGIN(function (exports) {
+
+        exports.reload = function () {
+            // exports.ajax('GET /api/order/ @showloading', 'order @hideloading');          // data will end up in PLUGINS.order
+
+
+            SET(
+                '?.order',
+                [{ title: '1 beer' }, { title: '1 coffee' }, { title: '1 broodje bal' }, { title: '1 tosti ham-kaas' }]
+            );
+
+        };
+
+        exports.view = function () {
+            alert('todo');
+        };    
+
+        exports.create = function () {
+        };
+
+    });
+
+</script>
