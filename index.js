@@ -13,7 +13,7 @@ const options = {};
 // options.sleep = 3000;
 // options.inspector = 9229;
 // options.watch = ['private'];
-// options.livereload = 'https://yourhostname';
+options.livereload = 'http://localhost:8000';
 // options.https = { key: Fs.readFileSync('keys/agent2-key.pem'), cert: Fs.readFileSync('keys/agent2-cert.pem')};
 // options.watcher = true; // enables watcher for the release mode only controlled by the app `F.restart()`
 // options.edit = 'wss://www.yourcodeinstance.com/?id=projectname'

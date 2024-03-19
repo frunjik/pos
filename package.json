@@ -1,7 +1,7 @@
 {
-  "name": "emptyproject",
-  "description": "Total.js empty project.",
-  "version": "1.0.0",
+  "name": "simple-pos",
+  "description": "Simple POS",
+  "version": "0.0.1",
   "main": "index.js",
   "dependencies": {
     "total4": "latest"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["empty", "project"],
-  "author": "Peter Širka",
+  "keywords": ["POS", "simple"],
+  "author": "frunjik@gmail.com",
   "license": "MIT"
 }

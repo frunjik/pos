@@ -1,0 +1,47 @@
+<ui-plugin>
+
+    <div style="width:100%;padding:0px">
+        <ui-component name="tablegrid" path="?.tables" config="count:4" style="border:1px solid #EBECF2">
+
+            <script type="text/html">
+                <div class="exec" data-exec="?/view">
+                    <div style="padding:20px 0;text-align:center; background-color: lightgray;" class="b">
+                        <div>{{ value.title }}</div>
+                    </div>
+                    <div style="padding:20px 0;text-align:center">
+                        <div>1 test</div>
+                        <div>1 test</div>
+                        <div>1 test</div>
+                        <div>1 test</div>
+                        <div>1 test</div>
+                    </div>
+                </div>
+            </script>
+
+        </ui-component>
+    </div>
+    <script>
+        SET('?.tables',
+            [{ title: 'Total.js' }, { title: 'SuperAdmin' }, { title: 'Code Editor' }, { title: 'jComponent' }]
+        );
+    </script>
+
+</ui-plugin>
+
+<script>
+    PLUGIN(function (exports) {
+
+        exports.reload = function () {
+            exports.ajax('GET /api/tables/ @showloading', 'tables @hideloading');          // data will end up in PLUGINS.tables
+        };
+
+        exports.view = function () {
+            alert('todo');
+        };    
+
+        exports.create = function () {
+        };
+
+    });
+
+</script>

@@ -3,6 +3,10 @@ version                         : 1.0.0
 
 // database                        : postgres://USER:PASS@localhost:5432/DB_NAME
 
+table_tables                    : id:UID,title:string
+table_products                  : id:UID,title:string,price:number
+
+
 // Total.js API services:
 // totalapi                        : YOUR TOKEN
 
