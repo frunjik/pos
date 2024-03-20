@@ -5,8 +5,6 @@
             width: 200px;
             height: 200px;
             background-color: lightgray;
-            /* padding: 10px; */
-            /* margin: 10px; */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -23,17 +21,16 @@
         </nav>
     </header>
 
-
     <div class="padding">
         @(Tables)
 
-        <div data-bind="?.tables__template">
+        <div data-bind="?.data__template">
             <script type="text/html">
 
-                {{ foreach table in value }}
+                {{ foreach item in value }}
 
                     <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box">
-                        {{ table.title }}
+                        {{ item.title }}
                     </div>                
 
                 {{ end }}
@@ -51,24 +48,13 @@
     PLUGIN(function (exports) {
 
         exports.reload = function () {
-
-            console.log('reloading');
-
-            exports.ajax('GET /api/tables/ @showloading', 'tables @hideloading');          // data will end up in PLUGINS.tables.data ?
+            exports.ajax('GET /api/tables/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.tables.data ?
         };
 
         exports.create = function () {
             // show the table form
-
-            // exports.set(
-            //     'common.form', 'table'
-            // );
-
             SET('common.form', 'table');
         };
-
-
-
 
     });
 
