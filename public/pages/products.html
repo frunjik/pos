@@ -81,7 +81,10 @@
     PLUGIN(function (exports) {
 
         exports.reload = function () {
-            exports.ajax('GET /api/products/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.products.data ?
+            const list = GET('?.data');
+            if (!list || !list.length) {
+                exports.ajax('GET /api/products/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.products.data ?
+            }
         };
 
         exports.update = function (el) {

@@ -56,7 +56,10 @@
     PLUGIN(function (exports) {
 
         exports.reload = function () {
-            exports.ajax('GET /api/tables/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.tables.data ?
+            const list = GET('?.data');
+            if (!list || !list.length) {
+                exports.ajax('GET /api/tables/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.tables.data ?
+            }
         };
 
         exports.update = function (el) {
