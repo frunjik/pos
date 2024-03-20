@@ -109,17 +109,11 @@
 		});
 
 		ON('@flag showloading', function() {
-            console.log('loading/show');
-
-
 			SETTER('loading/show');
 		});
 
 		ON('@flag hideloading', function() {
 			SETTER('loading/hide', timeout);
-
-            console.log('loading/hide');
-
 		});
 
 		PLUGIN('common', function(exports) {
