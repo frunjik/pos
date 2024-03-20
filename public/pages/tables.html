@@ -1,7 +1,7 @@
 <ui-plugin>
 
     <style>
-        .box-t {
+        .box-table {
             width: 250px;
             height: 200px;
             background-color: lightgray;
@@ -20,19 +20,18 @@
         <label><i class="ti ti-box"></i>@(All tables)</label>
         <nav class="toolbar">
             <button class="exec link" data-exec="?/create"><i class="ti ti-plus-circle green"></i>@(Add)</button>
-            <button><i class="ti ti-cog"></i>@(Options)</button>
+            <!-- <button><i class="ti ti-cog"></i>@(Options)</button> -->
         </nav>
     </header>
 
     <div class="padding">
-        @(Tables)
 
         <div data-bind="?.data__template">
             <script type="text/html">
 
                 {{ foreach item in value }}
 
-                    <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box-t" data-id="{{ item.id }}">
+                    <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box-table" data-id="{{ item.id }}">
                         <h2>
                             {{ item.title }}
                         </h2>
