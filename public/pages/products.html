@@ -6,8 +6,11 @@
             height: 200px;
             background-color: lightgray;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* align-content: center; */
+
             align-items: center;
-            justify-content: center;
             margin-right: 5px;
             margin-bottom: 5px;
         }
@@ -29,8 +32,19 @@
 
                 {{ foreach item in value }}
 
-                    <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box">
-                        {{ item.title }} | {{ item.price }}
+                    <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box" data-id="{{item.id}}">
+                        <h2>
+                            {{ item.title }} 
+                        </h2>
+
+                        <h4>
+                            {{ item.price.currency('eur') }}
+                        </h4>
+
+                        <div style="width: 100%; height: 30px;">
+                            <a class="exec link" data-exec="?/update">@(edit)</a>
+                        </div>
+
                     </div>                
 
                 {{ end }}
@@ -45,15 +59,28 @@
 <ui-component name="importer" path="common.form" config="if:product;url:/forms/product.html"></ui-component>
 
 <script>
+
     PLUGIN(function (exports) {
 
         exports.reload = function () {
             exports.ajax('GET /api/products/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.products.data ?
         };
 
+        exports.update = function (el) {
+
+            const id = el.attrd2('id');
+            const data = GET('?.data');
+            const item = data.findItem(e => e.id === id);
+
+            if (item) {
+                SET('product', item);             // fill form
+                SET('common.form', 'product');    // show form
+            }    
+        };
+
         exports.create = function () {
-            // show the product form
-            SET('common.form', 'product');
+            SET('product', {});                   // clear form
+            SET('common.form', 'product');        // show  form
         };
 
     });

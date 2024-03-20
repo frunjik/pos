@@ -37,6 +37,25 @@ NEWSCHEMA('Products', function(schema) {
         }
     });
 
+    // Action for updating a Product
+    schema.action('update', {
+        name: 'Update existing Product',
+        params: '*id:String',
+        input: '*title:String,price:number',
+        action: function($, model) {
+
+            // Update the Table with the new data
+            // model.dtupdated = NOW;
+
+            products
+                .modify(model)
+                .where('id', '=', $.params.id)
+                .callback($.done())
+                ;
+
+        }
+    });
+
     // Action for removing a single Product (identified by id)
     schema.action('remove', {
         name: 'Remove Product',

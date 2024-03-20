@@ -23,7 +23,10 @@
 		exports.submit = function(hide) {
             var model = exports.form;
 
-            exports.ajax('POST /api/products/ @showloading ERROR', model, function(response) {
+            const id = model.id ?? '';
+            const method = id ? 'PUT' : 'POST';
+
+            exports.ajax(`${method} /api/products/${id} @showloading ERROR`, model, function(response) {
 
                 // Reset form
                 SET('?', {});
@@ -36,6 +39,7 @@
                 hide();
 			});
 		};
+
 	});
 
 </script>

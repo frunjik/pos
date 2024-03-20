@@ -94,7 +94,8 @@
 	<script>
         const timeout = 100;
 
-		var common = {};
+		var common = {
+        };
 
 		CACHEPATH('common.page', '1 week');
 		CACHEPATH('common.darkmode', '1 week');
@@ -135,6 +136,13 @@
 			};
 
 		});
+
+        DEF.currencies.eur = function(val) {
+            // @val {Number}
+            // return {String}
+            return '€ ' + (val / 100).format(2);
+        };
+
 	</script>
 
 </body>
