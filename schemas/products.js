@@ -22,7 +22,7 @@ NEWSCHEMA('Products', function(schema) {
     // Action for inserting a new Product
     schema.action('insert', {
         name: 'Insert new Product',
-        input: '*title:String',
+        input: '*title:String,price:number',
         action: function($, model) {
 
             // Generate a unique ID and set the creation timestamp

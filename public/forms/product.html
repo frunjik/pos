@@ -1,6 +1,7 @@
-<ui-component name="form" path="common.form" config="if:table;width:500;icon:circle;submit:?/submit;reload:?/reload;autofocus:1" plugin="~PATH~" class="hidden">
+<ui-component name="form" path="common.form" config="if:product;width:500;icon:circle;submit:?/submit;reload:?/reload;autofocus:1" plugin="~PATH~" class="hidden">
 	<div class="padding">
 		<ui-component name="input" path="?.title" config="required:1;maxlength:50" class="m">@(Title)</ui-component>
+		<ui-component name="input" path="?.price" config="required:1;type:number" class="m">@(Price (in cents))</ui-component>
 	</div>
 	<nav>
 		<ui-component name="validate" path="?">
@@ -16,18 +17,18 @@
 
 		exports.reload = function(com) {
 			var model = exports.model;
-			com.reconfigure({ title: model.id ? 'Edit Table' : 'Add Table' });
+			com.reconfigure({ title: model.id ? 'Edit Product' : 'Add Product' });
 		};
         
 		exports.submit = function(hide) {
             var model = exports.form;
 
-            exports.ajax('POST /api/tables/ @showloading ERROR', model, function(response) {
+            exports.ajax('POST /api/products/ @showloading ERROR', model, function(response) {
 
                 // Reset form
                 SET('?', {});
 
-                // exports.caller "tables" plugin in ../pages/tables.html
+                // exports.caller "products" plugin in ../pages/products.html
 				// Refresh data in grid
                 exports.caller && exports.caller.exec('reload');
 

@@ -1,21 +1,61 @@
 <ui-plugin>
-	<header>
-		<label><i class="ti ti-box"></i>@(All products)</label>
-		<nav class="toolbar">
-			<button><i class="ti ti-plus-circle green"></i>@(Add)</button>
-			<button><i class="ti ti-cog"></i>@(Options)</button>
-		</nav>
-	</header>
-	<div class="padding">
-		@(Products)
-	</div>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <header>
+        <label><i class="ti ti-box"></i>@(All products)</label>
+        <nav class="toolbar">
+            <button class="exec link" data-exec="?/create"><i class="ti ti-plus-circle green"></i>@(Add)</button>
+            <button><i class="ti ti-cog"></i>@(Options)</button>
+        </nav>
+    </header>
+
+    <div class="padding">
+        @(Products)
+
+        <div data-bind="?.data__template">
+            <script type="text/html">
+
+                {{ foreach item in value }}
+
+                    <div class="col-md-3 col-sm-4 col-xs-6 col-lg-2 box">
+                        {{ item.title }} | {{ item.price }}
+                    </div>                
+
+                {{ end }}
+                
+            </script>
+
+        </div>
+
+    </div>
 </ui-plugin>
 
+<ui-component name="importer" path="common.form" config="if:product;url:/forms/product.html"></ui-component>
+
 <script>
-	PLUGIN(function(exports) {
+    PLUGIN(function (exports) {
 
-		exports.reload = function() {
-		};
+        exports.reload = function () {
+            exports.ajax('GET /api/products/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.products.data ?
+        };
 
-	});
+        exports.create = function () {
+            // show the product form
+            SET('common.form', 'product');
+        };
+
+    });
+
 </script>
