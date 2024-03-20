@@ -3,34 +3,36 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=11" />
-	<meta name="format-detection" content="telephone=no" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="robots" content="all,follow" />
-	<link href="//cdn.componentator.com/spa.min@19.css" rel="stylesheet" />
-	<script src="//cdn.componentator.com/spa.min@19.js"></script>
-	<script src="@{REPO.ui}"></script>
-	@{import('meta', 'head', 'default.js', 'default.css', 'favicon.ico')}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all,follow" />
+    <link href="//cdn.componentator.com/spa.min@19.css" rel="stylesheet" />
+    <script src="//cdn.componentator.com/spa.min@19.js"></script>
+    <script src="@{REPO.ui}"></script>
+    @{import('meta', 'head', 'default.js', 'default.css', 'favicon.ico')}
 </head>
+
 <body class="invisible">
 
-	<ui-component name="exec"></ui-component>
-	<ui-component name="errorhandler"></ui-component>
-	<ui-component name="loading" class="hidden"></ui-component>
+    <ui-component name="exec"></ui-component>
+    <ui-component name="errorhandler"></ui-component>
+    <ui-component name="loading" class="hidden"></ui-component>
 
-	<ui-component name="LAZY directory"></ui-component>
-	<ui-component name="LAZY menu"></ui-component>
-	<ui-component name="LAZY approve"></ui-component>
-	<ui-component name="LAZY datepicker"></ui-component>
-	<ui-component name="LAZY colorpicker"></ui-component>
-	<ui-component name="LAZY faicons"></ui-component>
-	<ui-component name="LAZY message"></ui-component>
+    <ui-component name="LAZY directory"></ui-component>
+    <ui-component name="LAZY menu"></ui-component>
+    <ui-component name="LAZY approve"></ui-component>
+    <ui-component name="LAZY datepicker"></ui-component>
+    <ui-component name="LAZY colorpicker"></ui-component>
+    <ui-component name="LAZY faicons"></ui-component>
+    <ui-component name="LAZY message"></ui-component>
 
-	<ui-component name="layout" path="common.layout" config="parent:window" class="invisible">
+    <ui-component name="layout" path="common.layout" config="parent:window" class="invisible">
 
-		<script type="text/plain">
+        <script type="text/plain">
 			{
 				left: { size: 220 },
 				main: {},
@@ -45,105 +47,118 @@
 			}
 		</script>
 
-		<section data-type="main">
-			<ui-component name="page" path="common.page" config="if:pagedashboard;url:/pages/dashboard.html;reload:?/reload" class="hidden invisible"></ui-component>
-			<ui-component name="page" path="common.page" config="if:pagetables;url:/pages/tables.html;reload:?/reload" class="hidden invisible"></ui-component>
-			<ui-component name="page" path="common.page" config="if:pageproducts;url:/pages/products.html;reload:?/reload" class="hidden invisible"></ui-component>
-			<ui-component name="page" path="common.page" config="if:pageorder;url:/pages/order.html;reload:?/reload" class="hidden invisible"></ui-component>
-			<ui-component name="page" path="common.page" config="if:pageworkspace;url:/pages/workspace.html;reload:?/reload" class="hidden invisible"></ui-component>
-			<ui-component name="page" path="common.page" config="if:pagesettings;url:/pages/settings.html;reload:?/reload" class="hidden invisible"></ui-component>
-		</section>
+        <section data-type="main">
+            <ui-component name="page" path="common.page"
+                config="if:pagedashboard;url:/pages/dashboard.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+            <ui-component name="page" path="common.page" config="if:pagetables;url:/pages/tables.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+            <ui-component name="page" path="common.page"
+                config="if:pageproducts;url:/pages/products.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+            <ui-component name="page" path="common.page" config="if:pageorder;url:/pages/order.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+            <ui-component name="page" path="common.page"
+                config="if:pageworkspace;url:/pages/workspace.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+            <ui-component name="page" path="common.page"
+                config="if:pagesettings;url:/pages/settings.html;reload:?/reload"
+                class="hidden invisible"></ui-component>
+        </section>
 
-		<section data-type="left">
-			<header>
-				<a href="/" class="logo">@(POS)</a>
-			</header>
+        <section data-type="left">
+            <header>
+                <a href="/" class="logo">@(POS)</a>
+            </header>
 
-			<main>
-				<ui-component name="selected" path="common.page" config="selector:div">
-					<div class="nav nmb">
-						<nav>
-							<div class="exec" data-if="pagetables" data-exec="common/page"><i class="ti ti-box"></i>@(Tables)</div>
-							<div class="exec" data-if="pageproducts" data-exec="common/page"><i class="ti ti-box"></i>@(Products)</div>
-<!-- 
+            <main>
+                <ui-component name="selected" path="common.page" config="selector:div">
+                    <div class="nav nmb">
+                        <nav>
+                            <div class="exec" data-if="pagetables" data-exec="common/page"><i
+                                    class="ti ti-box"></i>@(Tables)</div>
+                            <div class="exec" data-if="pageproducts" data-exec="common/page"><i
+                                    class="ti ti-box"></i>@(Products)</div>
+                            <!-- 
 							<div class="exec" data-if="pageorder" data-exec="common/page"><i class="ti ti-box"></i>@(Order)</div>
 							<div class="exec" data-if="pageworkspace" data-exec="common/page"><i class="ti ti-box"></i>@(Workspace)</div>
 							<div class="exec" data-if="pagedashboard" data-exec="common/page"><i class="ti ti-dashboard"></i>@(Dashboard)</div>
  -->
                         </nav>
-					</div>
-				</ui-component>
-			</main>
+                    </div>
+                </ui-component>
+            </main>
 
-			<footer>
-				<ui-component name="selected" path="common.page" config="selector:span">
-					<span><i class="ti ti-navicon"></i></span>
-					<span><i class="ti ti-cloud-download"></i></span>
-					<span class="exec" data-exec="common/darkmode"><i class="ti ti-adjust"></i></span>
-					<span class="exec" data-if="pagesettings" data-exec="common/page"><i class="ti ti-cog"></i></span>
-				</ui-component>
-			</footer>
-		</section>
+            <footer>
+                <ui-component name="selected" path="common.page" config="selector:span">
+                    <span><i class="ti ti-navicon"></i></span>
+                    <span><i class="ti ti-cloud-download"></i></span>
+                    <span class="exec" data-exec="common/darkmode"><i class="ti ti-adjust"></i></span>
+                    <span class="exec" data-if="pagesettings" data-exec="common/page"><i class="ti ti-cog"></i></span>
+                </ui-component>
+            </footer>
+        </section>
 
-	</ui-component>
+    </ui-component>
 
-	<div class="mainmenu exec" data-exec="common/mainmenu">
-		<i class="ti ti-bars"></i>
-	</div>
+    <div class="mainmenu exec" data-exec="common/mainmenu">
+        <i class="ti ti-bars"></i>
+    </div>
 
-	<script>
+    <script>
         const timeout = 100;
 
-		var common = {
+        var common = {
         };
 
-		CACHEPATH('common.page', '1 week');
-		CACHEPATH('common.darkmode', '1 week');
+        CACHEPATH('common.page', '1 week');
+        CACHEPATH('common.darkmode', '1 week');
 
-		common.page = 'pagetables';
-		common.layout = '';
+        common.page = 'pagetables';
+        common.layout = '';
 
-		ON('ready', function() {
-			var body = $('body');
-			common.darkmode && body.aclass('ui-dark');
-			body.rclass('invisible');
-		});
+        ON('ready', function () {
+            var body = $('body');
+            common.darkmode && body.aclass('ui-dark');
+            body.rclass('invisible');
+        });
 
-		ON('@flag showloading', function() {
-			SETTER('loading/show');
-		});
+        ON('@flag showloading', function () {
+            SETTER('loading/show');
+        });
 
-		ON('@flag hideloading', function() {
-			SETTER('loading/hide', timeout);
-		});
+        ON('@flag hideloading', function () {
+            SETTER('loading/hide', timeout);
+        });
 
-		PLUGIN('common', function(exports) {
+        PLUGIN('common', function (exports) {
 
-			exports.page = function(el) {
-				var id = typeof(el) === 'string' ? el : el.attrd('if');
-				exports.set('page', id);
-				exports.set('layout', '');
-			};
+            exports.page = function (el) {
+                var id = typeof (el) === 'string' ? el : el.attrd('if');
+                exports.set('page', id);
+                exports.set('layout', '');
+            };
 
-			exports.darkmode = function() {
-				var el = $('body').tclass('ui-dark');
-				exports.set('darkmode', el.hclass('ui-dark'));
-			};
+            exports.darkmode = function () {
+                var el = $('body').tclass('ui-dark');
+                exports.set('darkmode', el.hclass('ui-dark'));
+            };
 
-			exports.mainmenu = function() {
-				var model = exports.model;
-				exports.set('layout', model.layout === 'detail' ? '' : 'detail');
-			};
+            exports.mainmenu = function () {
+                var model = exports.model;
+                exports.set('layout', model.layout === 'detail' ? '' : 'detail');
+            };
 
-		});
+        });
 
-        DEF.currencies.eur = function(val) {
+        DEF.currencies.eur = function (val) {
             // @val {Number}
             // return {String}
             return '€ ' + (val / 100).format(2);
         };
 
-	</script>
+    </script>
 
 </body>
+
 </html>
