@@ -27,7 +27,7 @@
     <div class="padding">
         @(Tables)
 
-        <div data-bind="?.data__template">
+        <div data-bind="?.tables__template">
             <script type="text/html">
 
                 {{ foreach table in value }}
@@ -54,7 +54,7 @@
 
             console.log('reloading');
 
-            exports.ajax('GET /api/tables/ @showloading', 'data @hideloading');          // data will end up in PLUGINS.tables.data ?
+            exports.ajax('GET /api/tables/ @showloading', 'tables @hideloading');          // data will end up in PLUGINS.tables.data ?
         };
 
         exports.create = function () {
