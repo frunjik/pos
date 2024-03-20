@@ -37,6 +37,25 @@ NEWSCHEMA('Tables', function(schema) {
         }
     });
 
+    // Action for updating a Table
+    schema.action('update', {
+        name: 'Update existing Table',
+        params: '*id:String',
+        input: '*title:String',
+        action: function($, model) {
+
+            // Update the Table with the new data
+            // model.dtupdated = NOW;
+
+            tables
+                .modify(model)
+                .where('id', '=', $.params.id)
+                .callback($.done())
+                ;
+
+        }
+    });
+
     // Action for removing a single Table (identified by id)
     schema.action('remove', {
         name: 'Remove Table',

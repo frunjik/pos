@@ -20,9 +20,12 @@
 		};
         
 		exports.submit = function(hide) {
-            var model = exports.form;
+            const model = exports.form;
 
-            exports.ajax('POST /api/tables/ @showloading ERROR', model, function(response) {
+            const id = model.id ?? '';
+            const method = id ? 'PUT' : 'POST';
+
+            exports.ajax(`${method} /api/tables/${id} @showloading ERROR`, model, function(response) {
 
                 // Reset form
                 SET('?', {});
