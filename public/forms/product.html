@@ -31,9 +31,6 @@
 
             exports.ajax(`${method} /api/products/${id} @showloading ERROR`, model, function (response) {
 
-                // Reset form
-                SET('?', {});
-
                 // exports.caller "products" plugin in ../pages/products.html
                 // Refresh data in grid
                 exports.caller && exports.caller.exec('reload');
