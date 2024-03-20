@@ -1,6 +1,11 @@
 <ui-plugin>
 
     <style>
+        .margin {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
         .box {
             width: 300px;
             height: 200px;
@@ -9,8 +14,6 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            margin-right: 5px;
-            margin-bottom: 5px;
         }
     </style>
 
@@ -32,7 +35,7 @@
 
                     <div 
                         
-                        class="exec col-md-3 col-sm-4 col-xs-6 col-lg-2 box" 
+                        class="exec col-md-3 col-sm-4 col-xs-6 col-lg-2 box margin" 
                         data-id="{{item.id}}"
                     >
                         <div class="exec box" data-exec="?/test">
